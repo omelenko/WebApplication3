@@ -1,0 +1,45 @@
+﻿@page
+@model WebApplication3.Pages.addNewModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Додати</h1>
+
+<h4>Новину</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="new1.Summary" class="control-label">Заголовок</label>
+                <input asp-for="new1.Summary" class="form-control" maxlength="50"/>
+                <span asp-validation-for="new1.Summary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="new1.Short_descrition" class="control-label">Опис</label>
+                <input asp-for="new1.Short_descrition" class="form-control" maxlength="150"/>
+                <span asp-validation-for="new1.Short_descrition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="new1.Full_text" class="control-label">Повний текст</label>
+                <input asp-for="new1.Full_text" class="form-control" maxlength="5000"/>
+                <span asp-validation-for="new1.Full_text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Створити" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Назад до списку</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
